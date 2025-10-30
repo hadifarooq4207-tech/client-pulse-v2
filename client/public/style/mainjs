@@ -1,0 +1,80 @@
+/* ===== ClientPulse v2 Premium Styles ===== */
+:root {
+  --primary: #4f46e5;
+  --secondary: #6366f1;
+  --accent: #22c55e;
+  --bg: #f9fafb;
+  --text: #111827;
+  --card: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px var(--shadow);
+  padding: 2rem;
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+input, button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid #e5e7eb;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: var(--secondary);
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  margin-top: 1rem;
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
