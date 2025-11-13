@@ -1,0 +1,50 @@
+// client/public/scripts/admin.js
+
+// Add admin
+document.getElementById("add-admin-btn").addEventListener("click", async () => {
+  const uid = document.getElementById("admin-uid").value;
+  const name = document.getElementById("admin-name").value;
+
+  const token = await firebase.auth().currentUser.getIdToken();
+
+  const res = await fetch("/api/admin/admins/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+    body: JSON.stringify({ uid, name }),
+  });
+  const data = await res.json();
+  alert(data.message);
+});
+
+// Remove admin
+document.getElementById("remove-admin-btn").addEventListener("click", async () => {
+  const uid = document.getElementById("admin-uid").value;
+  const token = await firebase.auth().currentUser.getIdToken();
+
+  const res = await fetch("/api/admin/admins/remove", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+    body: JSON.stringify({ uid }),
+  });
+  const data = await res.json();
+  alert(data.message);
+});
+
+// View subscriptions
+document.getElementById("view-subs-btn").addEventListener("click", async () => {
+  const token = await firebase.auth().currentUser.getIdToken();
+
+  const res = await fetch("/api/admin/subscriptions", {
+    method: "GET",
+    headers: { "Authorization": `Bearer ${token}` },
+  });
+  const data = await res.json();
+
+  const list = document.getElementById("subs-list");
+  list.innerHTML = "";
+  data.subscriptions.forEach(sub => {
+    const li = document.createElement("li");
+    li.textContent = `${sub.user} - ${sub.plan} - ${sub.status}`;
+    list.appendChild(li);
+  });
+});
