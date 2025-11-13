@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Pulse Admin Panel</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <h1>Admin Panel</h1>
+
+  <section id="manage-admins">
+    <h2>Manage Admins</h2>
+    <input type="text" id="admin-uid" placeholder="UID">
+    <input type="text" id="admin-name" placeholder="Name">
+    <button id="add-admin-btn">Add Admin</button>
+    <button id="remove-admin-btn">Remove Admin</button>
+  </section>
+
+  <section id="subscriptions">
+    <h2>Subscription Info</h2>
+    <button id="view-subs-btn">View Subscriptions</button>
+    <ul id="subs-list"></ul>
+  </section>
+
+  <script src="firebase-client.js"></script>
+  <script src="scripts/admin.js"></script>
+</body>
+</html>
